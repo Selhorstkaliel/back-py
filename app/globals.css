@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark neon custom */
+body {
+  background: #090b10;
+  color: #3ef3fa;
+}
