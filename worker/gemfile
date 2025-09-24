@@ -1,0 +1,8 @@
+source "https://rubygems.org"
+ruby "3.4.4"
+
+gem "sequel"
+gem "sqlite3"
+gem "rufus-scheduler"
+gem "dotenv"
+gem 'tzinfo-data'
