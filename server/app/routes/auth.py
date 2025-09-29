@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, Request, Response, HTTPException, status
 from sqlalchemy.orm import Session
+from app.config import settings
 from ..db import SessionLocal
 from ..models import User, RoleEnum
 from ..schemas import UserOut
@@ -17,7 +18,12 @@ def login(request: Request, response: Response, username: str, password: str, db
         raise HTTPException(status_code=401, detail="Invalid credentials")
     token = create_jwt({"sub": user.username, "role": user.role.value, "id": user.id, "name": user.name, "email": user.email})
     response.set_cookie(
-        key="jwt", value=token, httponly=True, secure=True, samesite="lax", max_age=60*60*8
+        key="jwt",
+        value=token,
+        httponly=True,
+        secure=settings.NODE_ENV == "production",
+        samesite="lax",
+        max_age=60 * 60 * 8,
     )
     return {
         "id": user.id, "name": user.name, "email": user.email, "role": user.role.value
@@ -25,7 +31,12 @@ def login(request: Request, response: Response, username: str, password: str, db
 
 @router.post("/logout")
 def logout(response: Response):
-    response.delete_cookie(key="jwt")
+    response.delete_cookie(
+        key="jwt",
+        httponly=True,
+        secure=settings.NODE_ENV == "production",
+        samesite="lax",
+    )
     return {"ok": True}
 
 @router.get("/me", response_model=UserOut)
