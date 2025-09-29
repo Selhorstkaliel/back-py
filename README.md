@@ -87,9 +87,11 @@ limitclean/
 cd server
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt  # ou poetry install
-alembic upgrade head
+python -m alembic -c alembic.ini upgrade head  # garante o uso do ambiente ativo
 uvicorn app.main:app --reload
 ```
+
+> 💡 **Windows (PowerShell):** após ativar `\.venv\Scripts\Activate.ps1`, use `python -m alembic -c alembic.ini upgrade head`. Isso evita erros como `'.\.venv\Scripts\alembic.exe' não é reconhecido`, que ocorrem quando o PowerShell tenta acessar um executável que não foi gerado (por exemplo, se as dependências ainda não foram instaladas no ambiente virtual).
 
 2. **Worker (Ruby)**
 ```bash
