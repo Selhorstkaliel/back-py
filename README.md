@@ -54,6 +54,15 @@ limitclean/
    │  ├─ layout.js
    │  ├─ globals.css
    │  ├─ middleware.js
+ codex/move-login-to-nested-auth-folder
+   │  ├─ (auth)/auth/login/page.js
+   │  └─ (protected)/
+   │     ├─ page.js
+   │     ├─ dashboard/page.js
+   │     ├─ cadastro/page.js
+   │     ├─ support/page.js
+   │     └─ config/page.js
+
    │  ├─ (auth)/login/page.js
    │  └─ (protected)/
    │     ├─ page.js
@@ -62,6 +71,7 @@ limitclean/
    │        ├─ cadastro/page.js
    │        ├─ support/page.js
    │        └─ config/page.js
+ main
    ├─ components/...
    ├─ lib/fetch.js
    ├─ store/filters.js
