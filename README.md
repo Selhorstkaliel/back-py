@@ -54,7 +54,7 @@ limitclean/
    │  ├─ layout.js
    │  ├─ globals.css
    │  ├─ middleware.js
-   │  ├─ (auth)/login/page.js
+   │  ├─ (auth)/auth/login/page.js
    │  └─ (protected)/
    │     ├─ page.js
    │     ├─ dashboard/page.js
