@@ -57,10 +57,11 @@ limitclean/
    │  ├─ (auth)/login/page.js
    │  └─ (protected)/
    │     ├─ page.js
-   │     ├─ dashboard/page.js
-   │     ├─ cadastro/page.js
-   │     ├─ support/page.js
-   │     └─ config/page.js
+   │     └─ protected/
+   │        ├─ dashboard/page.js
+   │        ├─ cadastro/page.js
+   │        ├─ support/page.js
+   │        └─ config/page.js
    ├─ components/...
    ├─ lib/fetch.js
    ├─ store/filters.js
